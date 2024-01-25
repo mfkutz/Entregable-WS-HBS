@@ -1,6 +1,6 @@
 #Aspectos a incluir
 
-1- Configurar el servidor para integrar el motor de plantillas Handlebars e instalar un servidor de socket.io al mismo.
+1- Configurar el servidor para integrar el motor de plantillas Handlebars e instalar un servidor de socket.io al mismo. ✅
 
 2- Crear una vista “home.handlebars” la cual contenga una lista de todos los productos agregados hasta el momento.
 
