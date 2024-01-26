@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Products</title>
+</head>
+
+<body>
+
+    <section class="forms_section">
+        {{!-- Add Product --}}
+        <form action="#" id="newProduct">
+            <h1>Add product</h1>
+            <label for="">Title</label>
+            <input type="text" required id="title" placeholder="Product7">
+            <label for="">Description</label>
+            <input type="text" required id="description" placeholder="Description7">
+            <label for="">Price</label>
+            <input type="number" required id="price" placeholder="9">
+            <label for="">File name</label>
+            <input type="text" required id="thumbnail" placeholder="thumbnail7.jpg">
+            <label for="">Code</label>
+            <input type="text" required id="code" placeholder="P007">
+            <label for="">Stock</label>
+            <input type="number" required id="stock" placeholder="54">
+            <label for="">Status</label>
+            <select name="" id="status">
+                <option value="true" selected>True</option>
+                <option value="false">False</option>
+            </select>
+            <label for="">Category</label>
+            <input type="text" required id="category" placeholder="cat3">
+            <button type="submit" class="btn_add">Add product</button>
+            <label for="" class="resultAdd" id="resultAdd"></label>
+        </form>
+
+        {{!-- Delete Product --}}
+        <form action="##" id="deleteProduct">
+            <h2>Delete Product</h2>
+            <label for="">Enter number of product</label>
+            <input type="text" placeholder="5" required id="inputNum">
+            <button class="btn_del" type="submit">Delete product</button>
+            <label for="" class="resultDelete" id="resultDelete"></label>
+        </form>
+    </section>
+
+    {{!-- View Real-Time Products --}}
+    <h2 class="title_products">Real-Time Products</h2>
+
+    <ul class="product_box_realTime" id="realTimeProductList">
+        {{#each allProducts}}
+        <li>
+            <h2>{{this.title}}</h2>
+            <p>Descripción: {{this.description}}</p>
+            <p>Precio: ${{this.price}}</p>
+            <p>Codigo Prod.: {{this.code}}</p>
+            <p>Stock: {{this.stock}}</p>
+        </li>
+        {{/each}}
+    </ul>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/realTimeProducts.js"></script>
+</body>
+
+</html>

@@ -4,19 +4,41 @@ const productsRouter = Router()
 
 const productManager = new ProductManager('./src/data/products.json')
 
+//Render on front whith handlebars
+productsRouter.get('/', async (req, res) => {
+    try {
+        const allProducts = await productManager.getProducts()
+        res.render('home', {
+            style: '/css/styles.css',
+            title: "All Products",
+            allProducts
+        })
+    } catch (error) {
+        res.status(400).send('Internal server Error', error)
+    }
+})
+
+//Render products in real time with ws
+productsRouter.get('/realtimeproducts', async (req, res) => {
+
+    res.render('realTimeProducts', {
+        style: '/css/styles.css'
+    })
+})
+
 productsRouter.get('/api/products', async (req, res) => {
     try {
-        const limit = parseInt(req.query.limit, 10) || undefined;
-        const allProducts = await productManager.getProducts();
+        const limit = parseInt(req.query.limit, 10) || undefined
+        const allProducts = await productManager.getProducts()
 
         if (limit) {
-            const limitedProducts = allProducts.slice(0, limit);
-            res.json(limitedProducts);
+            const limitedProducts = allProducts.slice(0, limit)
+            res.json(limitedProducts)
         } else {
-            res.json(allProducts);
+            res.json(allProducts)
         }
     } catch (error) {
-        res.send('Internal Server Error');
+        res.send('Internal Server Error')
     }
 })
 

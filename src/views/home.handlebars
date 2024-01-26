@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Products</title>
+</head>
+
+<body>
+    <h1 class="title_products">Productos</h1>
+    {{#each allProducts}}
+    <ul class="product_box">
+        <li>
+            <h2>{{this.title}}</h2>
+            <p>Descripción: {{this.description}}</p>
+            <p>Precio: ${{this.price}}</p>
+            <p>Codigo Prod.: {{this.code}}</p>
+            <p>Stock: {{this.stock}}</p>
+        </li>
+    </ul>
+    {{/each}}
+</body>
+
+</html>

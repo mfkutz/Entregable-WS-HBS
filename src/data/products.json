@@ -42,5 +42,16 @@
     "status": true,
     "category": "cat1",
     "id": 4
+  },
+  {
+    "title": "Product5",
+    "description": "description5",
+    "price": 78,
+    "thumbnail": "/thumbnail5.jpg",
+    "code": "P005",
+    "stock": 87,
+    "status": true,
+    "category": "cat2",
+    "id": 5
   }
 ]
